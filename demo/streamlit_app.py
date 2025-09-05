@@ -175,6 +175,20 @@ def main():
         st.markdown("• Conversation memory")
         st.markdown("• Cross-language support")
         
+        # Show TTS engine status
+        if hasattr(st.session_state.katha_engine, 'tts_engine'):
+            tts_info = st.session_state.katha_engine.tts_engine.get_tts_info()
+            st.markdown("---")
+            st.markdown("**🎤 TTS Engine Status:**")
+            engine_emoji = {
+                'coqui': '🎯',
+                'pyttsx3': '🔊', 
+                'gtts': '🌐',
+                'mock': '🎭'
+            }.get(tts_info['engine_type'], '❓')
+            
+            st.markdown(f"{engine_emoji} {tts_info['engine_type'].title()} ({tts_info['quality']})")
+        
         st.markdown("---")
         if st.button("🔄 Reset Demo"):
             if hasattr(st.session_state.katha_engine, 'reset_conversation_history'):
@@ -290,12 +304,40 @@ def live_chat_demo():
         # Process user input
         with st.spinner("🧠 Analyzing emotion and generating response..."):
             try:
-                if hasattr(st.session_state.katha_engine, 'process_text'):
-                    audio, result = st.session_state.katha_engine.process_text(user_input)
-                    response = result.get('emotion_explanation', 'Response generated')
-                else:
-                    audio, result, response = st.session_state.katha_engine.process_text(user_input)
+                # Process text with Katha engine
+                audio, result = st.session_state.katha_engine.process_text(user_input)
                 
+                # Generate appropriate response based on emotion
+                emotion = result.get('emotion_data', {}).get('emotion', 'neutral')
+                language = result.get('language', 'en')
+                
+                # Get culturally appropriate response
+                if language == 'bn':
+                    responses = {
+                        'joy': "আমিও খুব খুশি যে আপনি আনন্দিত!",
+                        'sadness': "আমি বুঝতে পারছি। সব ঠিক হয়ে যাবে।",
+                        'anger': "আমি আপনার রাগের কারণ বুঝতে পারছি। শান্ত হোন।",
+                        'surprise': "সত্যিই অবাক করার মতো!",
+                        'neutral': "আপনি কি আমাকে আরও বলতে পারেন?"
+                    }
+                elif language == 'hi':
+                    responses = {
+                        'joy': "मुझे भी बहुত खुशी हो रही है!",
+                        'sadness': "मैं समझ सकता हूं। सब ठीक हो जाएगा।",
+                        'anger': "मैं आपकी परेशानी समझ सकता हूं। शांत हो जाइए।",
+                        'surprise': "वाकई चौंकाने वाली बात है!",
+                        'neutral': "क्या आप मुझे और बता सकते हैं?"
+                    }
+                else:
+                    responses = {
+                        'joy': "I'm so happy to hear that!",
+                        'sadness': "I understand. Things will get better.",
+                        'anger': "I can sense you're upset. Let's take a deep breath.",
+                        'surprise': "That's really surprising!",
+                        'neutral': "Can you tell me more about that?"
+                    }
+                
+                response = responses.get(emotion, responses['neutral'])
                 st.session_state.processing_count += 1
                 
             except Exception as e:
@@ -307,7 +349,7 @@ def live_chat_demo():
             "role": "user",
             "content": user_input,
             "language": result.get('language_name', 'Unknown'),
-            "is_multilingual": False  # Could add multilingual detection
+            "is_multilingual": False
         })
         
         # Add assistant response

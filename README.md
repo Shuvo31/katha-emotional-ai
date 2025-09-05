@@ -2,19 +2,19 @@
 
 > The first AI voice system with authentic emotions for Indian languages
 
-## 🎯 What is Katha?
+## What is Katha?
 
 Katha brings human-like emotions to AI voices in Bengali, Hindi, and other Indian languages. Unlike robotic text-to-speech systems, Katha understands cultural context and responds with appropriate emotional expressions.
 
-### ✨ Key Features
+### Key Features
 
-- **🎭 Emotional Expression**: Joy, sadness, anger, surprise with natural voice modulation
-- **🌍 Cultural Context**: Understands Bengali আপনি/তুমি and Hindi आप/तुम formality levels
-- **🗣️ Multi-language**: Bengali, Hindi, English with seamless switching
-- **⚡ Real-time**: Sub-2 second response time for interactive applications
-- **🤖 AI-Powered**: Advanced emotion detection with conversation memory
+- ** Emotional Expression**: Joy, sadness, anger, surprise with natural voice modulation
+- ** Cultural Context**: Understands Bengali আপনি/তুমি and Hindi आप/तुम formality levels
+- ** Multi-language**: Bengali, Hindi, English with seamless switching
+- ** Real-time**: Sub-2 second response time for interactive applications
+- ** AI-Powered**: Advanced emotion detection with conversation memory
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone the repository

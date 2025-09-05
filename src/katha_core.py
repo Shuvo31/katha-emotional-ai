@@ -7,11 +7,10 @@ import numpy as np
 from typing import Dict, Tuple, Optional
 import logging
 import time
-
-from .language_detector import KathaLanguageDetector
-from .emotion_analyzer import KathaEmotionAnalyzer
-from .cultural_mapper import KathaCulturalMappings
-from .tts_engine import KathaEmotionalTTS
+from language_detector import KathaLanguageDetector
+from emotion_analyzer import KathaEmotionAnalyzer
+from cultural_mapper import KathaCulturalMappings
+from tts_engine import KathaEmotionalTTS
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

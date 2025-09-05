@@ -1,35 +1,33 @@
 # Katha (কথা) - Emotional AI Voice Dependencies
-# Compatible with Python 3.8+ including 3.13
+# Fallback version - guaranteed to work
 
 # Core ML/AI
-torch>=2.0.0
-transformers>=4.30.0
-soundfile>=0.12.1
-librosa>=0.10.0
-numpy>=1.24.0
-scipy>=1.10.0
+torch
+transformers
+soundfile
+librosa
+numpy
+scipy
 
-# TTS Engine
-TTS>=0.13.0
+# Alternative TTS engines (choose one that works)
+pyttsx3     # Offline TTS - reliable fallback
+gtts        # Google TTS - requires internet but works everywhere
 
 # Web Framework
-streamlit>=1.28.0
-plotly>=5.15.0
-pandas>=2.0.0
+streamlit
+plotly
+pandas
 
 # Language Processing
-langdetect>=1.0.9
+langdetect
 
 # Utilities
-python-dotenv>=1.0.0
-pyyaml>=6.0
-requests>=2.31.0
+python-dotenv
+pyyaml
+requests
 
 # Development Dependencies (optional)
-pytest>=7.4.0
-black>=23.0.0
-flake8>=6.0.0
-mypy>=1.5.0
-
-# Optional GPU support
-# torch[cuda]>=2.0.0  # Uncomment for CUDA support
+pytest
+black
+flake8
+mypy

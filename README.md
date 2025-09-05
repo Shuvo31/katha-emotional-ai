@@ -8,11 +8,11 @@ Katha brings human-like emotions to AI voices in Bengali, Hindi, and other India
 
 ### Key Features
 
-- ** Emotional Expression**: Joy, sadness, anger, surprise with natural voice modulation
-- ** Cultural Context**: Understands Bengali আপনি/তুমি and Hindi आप/तुम formality levels
-- ** Multi-language**: Bengali, Hindi, English with seamless switching
-- ** Real-time**: Sub-2 second response time for interactive applications
-- ** AI-Powered**: Advanced emotion detection with conversation memory
+- **Emotional Expression**: Joy, sadness, anger, surprise with natural voice modulation
+- **Cultural Context**: Understands Bengali আপনি/তুমি and Hindi आप/तुम formality levels
+- **Multi-language**: Bengali, Hindi, English with seamless switching
+- **Real-time**: Sub-2 second response time for interactive applications
+- **AI-Powered**: Advanced emotion detection with conversation memory
 
 ## Quick Start
 
